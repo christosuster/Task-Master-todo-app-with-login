@@ -99,7 +99,9 @@ const Dashboard = () => {
             <div>
               {userData.map((elem, idx) => {
                 // console.log(elem, idx);
-                return <ListItem idx={idx} e={elem} userID={userID} />;
+                return (
+                  <ListItem idx={idx} e={elem} userID={userID} key={idx} />
+                );
               })}
             </div>
           </div>
