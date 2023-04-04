@@ -85,7 +85,7 @@ const Login = () => {
             </form>
 
             <h1>
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <span className="font-bold cursor-pointer">
                 {" "}
                 <Link href="/signup">Sign Up</Link>
