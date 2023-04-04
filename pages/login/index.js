@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useFormik } from "formik";
-import { UserAuth } from "../authContext";
+import { UserAuth } from "../../components/AuthContext";
 import * as Yup from "yup";
 import { useRouter } from "next/router";
 import { useEffect } from "react";

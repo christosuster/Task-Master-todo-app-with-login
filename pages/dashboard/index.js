@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { UserAuth } from "../authContext";
+import { UserAuth } from "../../components/AuthContext";
 import { useRouter } from "next/router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {
@@ -12,7 +12,7 @@ import {
   setDoc,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../firebase-config";
+import { db } from "../../components/FirebaseConfig";
 import ListItem from "@/components/ListItem";
 
 const Dashboard = () => {

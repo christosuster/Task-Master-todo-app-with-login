@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Formik, useFormik } from "formik";
-import { UserAuth } from "../authContext";
+import { UserAuth } from "../../components/AuthContext";
 import * as Yup from "yup";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { db } from "../firebase-config";
+import { db } from "../../components/FirebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
 
 const Signup = () => {

@@ -1,4 +1,4 @@
-import { db } from "@/pages/firebase-config";
+import { db } from "@/components/FirebaseConfig";
 import {
   arrayRemove,
   arrayUnion,
