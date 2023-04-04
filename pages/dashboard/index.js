@@ -37,9 +37,7 @@ const Dashboard = () => {
     const getUsers = async (currentUser) => {
       const data = await getDocs(userCollectionRef);
       data.docs.map((e) => {
-        console.log(e.data(), currentUser.email);
         if (e.data().email == currentUser.email) {
-          console.log(currentUser.email);
           setUserData(e.data().notes);
           // console.log(e.id);
           setUserID(e.id);
@@ -48,7 +46,6 @@ const Dashboard = () => {
     };
   }, []);
   const addNote = () => {
-    console.log("here");
     const handleAddNote = async () => {
       const notesData = await getDoc(doc(db, "users", userID));
       // console.log(notesData.data().notes);

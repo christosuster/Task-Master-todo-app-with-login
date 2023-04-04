@@ -52,9 +52,7 @@ const ListItem = ({ idx, e, userID }) => {
     const handleSaveEdit = async () => {
       const oldNoteData = await getDoc(docRef);
       const tempData = oldNoteData.data().notes;
-      console.log(tempData);
       tempData[idx].noteText = newText;
-      console.log(tempData);
       await updateDoc(docRef, {
         notes: tempData,
       });

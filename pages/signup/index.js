@@ -16,7 +16,6 @@ const Signup = () => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user?.email) {
-        console.log(user);
         router.push("/dashboard");
       } else {
         router.push("/signup");

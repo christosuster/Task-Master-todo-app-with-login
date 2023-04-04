@@ -13,7 +13,6 @@ const Login = () => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user?.email) {
-        console.log(user);
         router.push("/dashboard");
       } else {
         router.push("/login");
@@ -36,7 +35,6 @@ const Login = () => {
     onSubmit: (values) => {
       const handleLogin = async () => {
         await signIn(values.email, values.password);
-        console.log(user);
 
         router.push("/dashboard");
       };
