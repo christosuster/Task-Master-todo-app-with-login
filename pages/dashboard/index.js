@@ -82,13 +82,13 @@ const Dashboard = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       {user?.email && (
-        <div className="w-[95vw] ">
+        <div className="w-[95vw] h-[90vh] overflow-hidden">
           <nav className="text-xl font-bold text-purple-300 flex bg-purple-900/50 rounded-t-2xl p-5 items-center justify-between">
             <h1>{user && user.email}</h1>
             <button onClick={handleLogout}>Logout</button>
           </nav>
-          <div className=" p-3">
-            <div className="flex items-center justify-center gap-2 max-w-[700px] m-auto">
+          <div className="p-3 overflow-hidden h-full">
+            <div className="flex items-center justify-center gap-2 max-w-[700px] m-auto mb-5 mt-2">
               <input
                 id="inputField"
                 type="text"
@@ -105,7 +105,7 @@ const Dashboard = () => {
                 Add Task
               </button>
             </div>
-            <div>
+            <div className="overflow-y-auto h-[72vh]">
               {userData.map((elem, idx) => {
                 // console.log(elem, idx);
                 return (
