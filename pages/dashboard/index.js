@@ -60,11 +60,12 @@ const Dashboard = () => {
           { noteText: newData, complete: false },
         ],
       });
+      loadDb();
     };
     handleAddNote();
 
     document.getElementById("inputField").value = "";
-    loadDb();
+
     // router.replace("/");
   };
 
