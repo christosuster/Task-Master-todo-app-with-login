@@ -26,6 +26,9 @@ const Login = () => {
       password: "",
     },
 
+    validateOnChange: false,
+    validateOnBlur: false,
+
     validationSchema: Yup.object({
       email: Yup.string()
         .email("Invalid email address")
@@ -52,7 +55,7 @@ const Login = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       {!user?.email && (
-        <div className="flex h-full flex-col lg:flex-row">
+        <div className="flex h-full flex-col lg:flex-row min-w-[90vw]">
           <div className="lg:h-[90vh]  w-full lg:backdrop-blur lg:bg-purple-900/70 text-center text-white flex items-center justify-center flex-col rounded-t-2x lg:rounded-l-2xl l p-10 mb-10 lg:m-auto">
             <h1 className="text-8xl font-bold ">Task Master</h1>
             <p className="text-2xl">Master your tasks, conquer your day</p>
@@ -61,7 +64,10 @@ const Login = () => {
             <h1 className="text-3xl white font-bold text-white lg:mt-5 mb-10">
               Login
             </h1>
-            <form className="text-black" onSubmit={formik.handleSubmit}>
+            <form
+              className="text-black flex flex-col justify-center items-center"
+              onSubmit={formik.handleSubmit}
+            >
               {formik.errors.email ? (
                 <label className="block text-red-400">
                   {formik.errors.email}
