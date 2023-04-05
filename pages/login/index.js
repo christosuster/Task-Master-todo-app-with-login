@@ -62,6 +62,13 @@ const Login = () => {
               Login
             </h1>
             <form className="text-black" onSubmit={formik.handleSubmit}>
+              {formik.errors.email ? (
+                <label className="block text-red-400">
+                  {formik.errors.email}
+                </label>
+              ) : (
+                ""
+              )}
               <input
                 required
                 type="email"
@@ -71,6 +78,13 @@ const Login = () => {
                 placeholder="Email"
                 className="mb-3 rounded-2xl opacity-40  text-center py-2 w-3/4 max-w-[500px] focus:outline-none"
               />
+              {formik.errors.password ? (
+                <label className="block text-red-400">
+                  {formik.errors.password}
+                </label>
+              ) : (
+                ""
+              )}
               <input
                 required
                 type="password"

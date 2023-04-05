@@ -29,14 +29,18 @@ const Signup = () => {
       password: "",
       confirmPassword: "",
     },
+    validateOnChange: false,
+    validateOnBlur: false,
 
     validationSchema: Yup.object({
       email: Yup.string()
         .email("Invalid email address")
         .required("Email is required!"),
-      password: Yup.string().required("Password is required!"),
+      password: Yup.string()
+        .required("Password is required!")
+        .min(6, "Password should be atleast 6 characters long"),
       confirmPassword: Yup.string()
-        .required()
+        .required("Retype your password!")
         .oneOf([Yup.ref("password"), null], "Passwords must match!"),
     }),
 
@@ -55,7 +59,7 @@ const Signup = () => {
     },
   });
 
-  // console.log(formik.errors);
+  console.log(formik.errors);
   return (
     <>
       <Head>
@@ -74,6 +78,13 @@ const Signup = () => {
               Sign Up
             </h1>
             <form className="text-black" onSubmit={formik.handleSubmit}>
+              {formik.errors.email ? (
+                <label className="block text-red-400">
+                  {formik.errors.email}
+                </label>
+              ) : (
+                ""
+              )}
               <input
                 type="text"
                 name="email"
@@ -82,6 +93,13 @@ const Signup = () => {
                 onChange={formik.handleChange}
                 className="mb-3 rounded-2xl opacity-40  text-center py-2 w-3/4 max-w-[500px] focus:outline-none"
               />
+              {formik.errors.password ? (
+                <label className="block text-red-400">
+                  {formik.errors.password}
+                </label>
+              ) : (
+                ""
+              )}
               <input
                 type="password"
                 name="password"
@@ -90,6 +108,13 @@ const Signup = () => {
                 onChange={formik.handleChange}
                 className="mb-3 rounded-2xl opacity-40 text-center py-2 w-3/4 max-w-[500px] focus:outline-none"
               />
+              {formik.errors.confirmPassword ? (
+                <label className="block text-red-400">
+                  {formik.errors.confirmPassword}
+                </label>
+              ) : (
+                ""
+              )}
               <input
                 type="password"
                 name="confirmPassword"
