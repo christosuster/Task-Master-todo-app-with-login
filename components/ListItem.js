@@ -42,9 +42,9 @@ const ListItem = ({ idx, e, userID, loadDb }) => {
       await updateDoc(docRef, {
         notes: tempData,
       });
+      loadDb();
     };
     handleDelete();
-    loadDb();
   };
 
   const saveEdit = () => {
@@ -62,11 +62,11 @@ const ListItem = ({ idx, e, userID, loadDb }) => {
       // await updateDoc(docRef, {
       //   notes: arrayUnion(newText),
       // });
+      loadDb();
     };
     handleSaveEdit();
 
     setEditMode(false);
-    loadDb();
   };
 
   const completeTask = () => {
@@ -81,9 +81,9 @@ const ListItem = ({ idx, e, userID, loadDb }) => {
       await updateDoc(docRef, {
         notes: tempData,
       });
+      loadDb();
     };
     handleComplete();
-    loadDb();
   };
 
   const editNote = () => {
