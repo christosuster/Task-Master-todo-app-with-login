@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Head from "next/head";
 
 const Login = () => {
   const router = useRouter();
@@ -45,6 +46,11 @@ const Login = () => {
 
   return (
     <>
+      <Head>
+        <title>Task Master | Login</title>
+        <meta name="description" content="Login" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       {!user?.email && (
         <div className="flex h-full flex-col lg:flex-row">
           <div className="lg:h-[90vh]  w-full lg:backdrop-blur lg:bg-purple-900/70 text-center text-white flex items-center justify-center flex-col rounded-t-2x lg:rounded-l-2xl l p-10 mb-10 lg:m-auto">

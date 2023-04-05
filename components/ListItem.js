@@ -45,7 +45,6 @@ const ListItem = ({ idx, e, userID }) => {
       });
     };
     handleDelete();
-    router.replace("/");
   };
 
   const saveEdit = () => {
@@ -67,7 +66,6 @@ const ListItem = ({ idx, e, userID }) => {
     handleSaveEdit();
 
     setEditMode(false);
-    router.replace("/");
   };
 
   const completeTask = () => {

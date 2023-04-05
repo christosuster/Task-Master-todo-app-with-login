@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db } from "../../components/FirebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
+import Head from "next/head";
 
 const Signup = () => {
   let router = useRouter();
@@ -57,6 +58,11 @@ const Signup = () => {
   // console.log(formik.errors);
   return (
     <>
+      <Head>
+        <title>Task Master | Sign Up</title>
+        <meta name="description" content="Sign Up" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       {!user?.email && (
         <div className="flex h-full flex-col lg:flex-row">
           <div className="lg:h-[90vh]  w-full lg:backdrop-blur lg:bg-purple-900/70 text-center text-white flex items-center justify-center flex-col rounded-t-2x lg:rounded-l-2xl l p-10 mb-10 lg:m-auto">

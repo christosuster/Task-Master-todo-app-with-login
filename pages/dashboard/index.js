@@ -14,6 +14,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../components/FirebaseConfig";
 import ListItem from "@/components/ListItem";
+import Head from "next/head";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -44,7 +45,7 @@ const Dashboard = () => {
         }
       });
     };
-  }, []);
+  }, [userData]);
   const addNote = () => {
     const handleAddNote = async () => {
       const notesData = await getDoc(doc(db, "users", userID));
@@ -59,7 +60,7 @@ const Dashboard = () => {
     handleAddNote();
 
     document.getElementById("inputField").value = "";
-    router.replace("/");
+    // router.replace("/");
   };
 
   const handleLogout = async () => {
@@ -69,6 +70,11 @@ const Dashboard = () => {
 
   return (
     <>
+      <Head>
+        <title>Task Master</title>
+        <meta name="description" content="Task Master" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       {user?.email && (
         <div className="w-[95vw] ">
           <nav className="text-xl font-bold text-purple-300 flex bg-purple-900/50 rounded-t-2xl p-5 items-center justify-between">
