@@ -14,7 +14,7 @@ const Signup = () => {
   const { createUser, user } = UserAuth();
   const userCollectionRef = collection(db, "users");
   useEffect(() => {
-    console.log("running1");
+    // console.log("running1");
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -61,7 +61,7 @@ const Signup = () => {
     },
   });
 
-  console.log(formik.errors);
+  // console.log(formik.errors);
   return (
     <>
       <Head>

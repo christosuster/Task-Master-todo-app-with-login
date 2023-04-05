@@ -25,10 +25,8 @@ const Dashboard = () => {
   const [newData, setNewData] = useState("");
 
   const loadDb = () => {
-    console.log("running here");
     const auth = getAuth();
     onAuthStateChanged(auth, (userTemp) => {
-      console.log("running");
       if (userTemp?.email) {
         getUsers(userTemp);
         router.push("/dashboard");

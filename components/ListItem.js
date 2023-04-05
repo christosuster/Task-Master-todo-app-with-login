@@ -18,7 +18,6 @@ import {
 } from "react-icons/md";
 
 const ListItem = ({ idx, e, userID, loadDb }) => {
-  console.log(e);
   const docRef = doc(db, "users", userID);
   const [newText, setNewText] = useState("");
   const router = useRouter();
