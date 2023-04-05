@@ -11,6 +11,8 @@ const Login = () => {
   const router = useRouter();
   const { signIn, user } = UserAuth();
   useEffect(() => {
+    console.log("running");
+
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user?.email) {

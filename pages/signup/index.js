@@ -14,6 +14,8 @@ const Signup = () => {
   const { createUser, user } = UserAuth();
   const userCollectionRef = collection(db, "users");
   useEffect(() => {
+    console.log("running1");
+
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user?.email) {

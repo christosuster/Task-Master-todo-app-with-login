@@ -24,11 +24,13 @@ const Dashboard = () => {
   const [userID, setUserID] = useState("");
   const [newData, setNewData] = useState("");
 
-  useEffect(() => {
+  const loadDb = () => {
+    console.log("running here");
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user?.email) {
-        getUsers(user);
+    onAuthStateChanged(auth, (userTemp) => {
+      console.log("running");
+      if (userTemp?.email) {
+        getUsers(userTemp);
         router.push("/dashboard");
       } else {
         router.push("/login");
@@ -45,7 +47,11 @@ const Dashboard = () => {
         }
       });
     };
-  }, [userData]);
+  };
+
+  useEffect(() => {
+    loadDb();
+  }, []);
   const addNote = () => {
     const handleAddNote = async () => {
       const notesData = await getDoc(doc(db, "users", userID));
@@ -60,6 +66,7 @@ const Dashboard = () => {
     handleAddNote();
 
     document.getElementById("inputField").value = "";
+    loadDb();
     // router.replace("/");
   };
 
@@ -103,7 +110,13 @@ const Dashboard = () => {
               {userData.map((elem, idx) => {
                 // console.log(elem, idx);
                 return (
-                  <ListItem idx={idx} e={elem} userID={userID} key={idx} />
+                  <ListItem
+                    idx={idx}
+                    e={elem}
+                    userID={userID}
+                    key={idx}
+                    loadDb={loadDb}
+                  />
                 );
               })}
             </div>

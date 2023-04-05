@@ -17,7 +17,7 @@ import {
   MdOutlineDone,
 } from "react-icons/md";
 
-const ListItem = ({ idx, e, userID }) => {
+const ListItem = ({ idx, e, userID, loadDb }) => {
   console.log(e);
   const docRef = doc(db, "users", userID);
   const [newText, setNewText] = useState("");
@@ -45,6 +45,7 @@ const ListItem = ({ idx, e, userID }) => {
       });
     };
     handleDelete();
+    loadDb();
   };
 
   const saveEdit = () => {
@@ -66,6 +67,7 @@ const ListItem = ({ idx, e, userID }) => {
     handleSaveEdit();
 
     setEditMode(false);
+    loadDb();
   };
 
   const completeTask = () => {
@@ -82,6 +84,7 @@ const ListItem = ({ idx, e, userID }) => {
       });
     };
     handleComplete();
+    loadDb();
   };
 
   const editNote = () => {
